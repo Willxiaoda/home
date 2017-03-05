@@ -1,9 +1,11 @@
 $(document).ready(function(){
 	//定义一个数组存放case案例中图片的网址
 	var caseAddress = new Array("http://www.xingkong.us","http://www.lib.xingkong.us","http://www.market.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us");
+	//图片hover文字
+	var textWord = new Array("星名片","学习库","二手市场","星地图","唱响新声","星空直播","星地图");
 	//此部分主要为星空案例下的js
 	//先定义星空案例中要加载的图片的张数
-	var casePic = 12;
+	var casePic = 7;
 	//定义星空案例下小圆点的个数
 	var smallBut = Math.ceil(casePic/6);
 	var caseIndex = 0;
@@ -15,9 +17,16 @@ $(document).ready(function(){
 	caseContent.css("width",280*Math.ceil(casePic/2)+'px');
 	//先加载第一页的图片
 	for(var i = casePic;i > 0;i--){
-		caseContent.append('<a><div class="caseImg"></div></a>');
+		caseContent.append('<a><div class="caseImg"><div class="casetext"><p></p></div></div></a>');
 		$('.caseImg').each(function(i){
-			$(this).css('background','url("image/xkcase/case-'+ (casePic-i) +'.png")');
+			$(this).css('background','url("image/xkcase/case-'+ (casePic-i) +'.jpg")');
+			//hover提示信息 
+			$('.casetext p').eq(i).text(textWord[i]);
+			$(this).hover(function(){
+				$(this).children('.casetext').slideDown(200);
+			},function(){
+				$(this).children('.casetext').slideUp(200);
+			});
 		});
 	}
 	//获得小圆点容器

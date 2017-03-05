@@ -21,6 +21,7 @@ $(document).ready(function(){
 		});
 	}
 
+
 	//加载小圆点
 	for(var m=0;m<culsmaBut;m++){
 		culButton.append('<span></span');
