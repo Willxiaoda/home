@@ -1,8 +1,8 @@
 $(document).ready(function(){
 	//定义一个数组存放case案例中图片的网址
-	var caseAddress = new Array("http://www.xingkong.us","http://www.lib.xingkong.us","http://www.market.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us","http://www.xingkong.us");
+	var caseAddress = new Array("http://www.xingkong.us/home/starcard","http://lib.xingkong.us","http://market.xingkong.us","http://www.xingkong.us/home/map/","http://www.xingkong.us/cxxs/cxxs/","http://live.xingkong.us","http://vote.xingkong.us");
 	//图片hover文字
-	var textWord = new Array("星名片","学习库","二手市场","星地图","唱响新声","星空直播","星地图");
+	var textWord = new Array("星名片","学习库","二手市场","星地图","唱响新声","星空直播","快乐班级");
 	//此部分主要为星空案例下的js
 	//先定义星空案例中要加载的图片的张数
 	var casePic = 7;
@@ -14,10 +14,10 @@ $(document).ready(function(){
 	//获取小圆点容器
 	var caseButton = $('#casebutton');
 	//设定#case-content窗口的宽度
-	caseContent.css("width",280*Math.ceil(casePic/2)+'px');
+	caseContent.css("width",300*Math.ceil(casePic/2)+'px');
 	//先加载第一页的图片
 	for(var i = casePic;i > 0;i--){
-		caseContent.append('<a><div class="caseImg"><div class="casetext"><p></p></div></div></a>');
+		caseContent.append('<a><div class="caseImg"><div class="casetext"><img src="image/caselogo.png" /><p></p></div></div></a>');
 		$('.caseImg').each(function(i){
 			$(this).css('background','url("image/xkcase/case-'+ (casePic-i) +'.jpg")');
 			//hover提示信息 
@@ -46,7 +46,7 @@ $(document).ready(function(){
 		caseIndex = $(this).index();
 		$(this).addClass('case-on').siblings().removeClass('case-on');
 		caseContent.animate({
-			left:-(caseIndex*840)+'px',
+			left:-(caseIndex*900)+'px',
 		});
 	});
 

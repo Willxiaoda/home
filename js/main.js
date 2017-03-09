@@ -1,10 +1,63 @@
 $(document).ready(function(){
+
+	//三个小圆图标函数
+	icon();
 	//推文相关jq
 	weixinus();
 	//回到顶部函数
 	backTop();
 
 });
+function icon(){
+	// 技术图标
+	$('#allcontent .tecimg').hover(function(){
+		$(this).children('.full').css('backgroundColor','#02afe8');
+		// console.log($(this));
+		// $(this).css('backgroundImage',' ');
+		$(this).children('.tecicon').animate({
+			top:'0px',
+			opacity:1,
+		},400);
+	},function(){
+		$(this).children('.full').css('backgroundColor','');
+		$(this).children('.tecicon').animate({
+			top:'-130px',
+			opacity:0,
+		},400);
+	});
+	//传媒图标
+	$('#allcontent .desimg').hover(function(){
+		$(this).children('.full').css('backgroundColor','#02afe8');
+		// console.log($(this));
+		// $(this).css('backgroundImage',' ');
+		$(this).children('.desicon').animate({
+			top:'0px',
+			opacity:1,
+		},400);
+	},function(){
+		$(this).children('.full').css('backgroundColor','');
+		$(this).children('.desicon').animate({
+			top:'-130px',
+			opacity:0,
+		},400);
+	});
+	// 运营策划图标
+	$('#allcontent .videoimg').hover(function(){
+		$(this).children('.full').css('backgroundColor','#02afe8');
+		// console.log($(this));
+		// $(this).css('backgroundImage',' ');
+		$(this).children('.videoicon').animate({
+			top:'0px',
+			opacity:1,
+		},400);
+	},function(){
+		$(this).children('.full').css('backgroundColor','');
+		$(this).children('.videoicon').animate({
+			top:'-130px',
+			opacity:0,
+		},400);
+	});
+}
 function weixinus(){
 	//定义数组存放推文链接
 	var arcLink = new Array("http://mp.weixin.qq.com/s/HQe4ocmVxlKDLH3Wt1Edtg","http://mp.weixin.qq.com/s/7BLsNrK3u-XxtSo0MWHD-g","http://mp.weixin.qq.com/s/9uHldKS1Ms3rPiz-G9lnuw","http://mp.weixin.qq.com/s/secF4V3loJFSlDiFRoeUdw","http://mp.weixin.qq.com/s/Nsxvqel4h2QfCi3HqrngeQ","http://mp.weixin.qq.com/s/Pld6J5qrpFIgJ3vMBYioFg");
@@ -36,18 +89,22 @@ function weixinus(){
 		$('#usword').slideDown();
 		$('#down').addClass('romate');
 		$(document).scrollTop($('#usword').offset().top);
-		// var 
+		//进来前获取一次高度
+		var beginTop = document.documentElement.scrollTop || document.body.scrollTop;
 		var weiTimer = setInterval(function(){
 			var bodyTop = document.documentElement.scrollTop || document.body.scrollTop;
 			var weiSpeed = Math.ceil(bodyTop/300);
 			// $(document).scrollTop(bodyTop + weiSpeed);
 			document.documentElement.scrollTop = document.body.scrollTop = bodyTop + weiSpeed;
-			if(bodyTop>=3680){
+			if(bodyTop-beginTop >= 300){
 				clearInterval(weiTimer);
 			}
+			// console.log($('#usword').offset().top);
 
 		},35)
 	});
+
+
 }
 
 // 侧边栏部件
